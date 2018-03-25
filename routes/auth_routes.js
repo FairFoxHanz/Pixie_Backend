@@ -1,5 +1,6 @@
 const passport = require("passport");
-
+const keys = require("../config/keys");
+const fs = require("fs");
 module.exports = app => {
   app.get(
     "/auth/facebook",
@@ -12,13 +13,13 @@ module.exports = app => {
     "/auth/facebook/callback",
     passport.authenticate("facebook"),
     (req, res) => {
-      res.redirect("/test/" + req.user.username);
+      res.redirect(`${keys.redirectDomain}/`);
     }
   );
 
   app.get("/api/logout", (req, res) => {
     req.logout();
-    res.redirect("/sprawdzamy");
+    res.redirect(`${keys.redirectDomain}/`);
   });
 
   app.get("/api/current_user", (req, res) => {

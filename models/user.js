@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   facebookId: String,
-  name: String,
+  name: String
 });
 
 mongoose.model("users", userSchema);
