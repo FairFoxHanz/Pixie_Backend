@@ -1,4 +1,5 @@
 require("./models/user");
+require("./models/event");
 require("./services/passport");
 
 const express = require("express");
@@ -40,6 +41,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 
 require("./routes/auth_routes")(app);
+require("./routes/event_routes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT + 1);
